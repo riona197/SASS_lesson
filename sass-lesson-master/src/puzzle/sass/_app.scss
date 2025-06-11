@@ -1,0 +1,22 @@
+@use 'variable';
+@use 'mixin';
+
+.header {
+	@include mixin.page-edge(variable.$navy);
+}
+
+.contents {
+	display: flex;
+}
+
+.sidebar {
+	@include mixin.center(150px, variable.$green);
+}
+
+.main {
+	@include mixin.center(250px, variable.$red);
+}
+
+.footer {
+	@include mixin.page-edge(variable.$brown);
+}

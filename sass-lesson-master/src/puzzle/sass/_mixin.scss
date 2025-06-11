@@ -1,0 +1,12 @@
+@mixin page-edge($color) {
+	height: 100px;
+	width: 400px;
+	background-color: $color;
+}
+
+@mixin center($centerWidth, $centerColor) {
+	height: 250px;
+	width: $centerWidth;
+	background-color: $centerColor;
+}
+
