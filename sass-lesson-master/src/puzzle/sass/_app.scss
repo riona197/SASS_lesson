@@ -1,0 +1,59 @@
+@use 'variable';
+@use 'mixin';
+
+$classNames: 'purple', 'orange', 'blue';
+$buttonColor: #a9004b, #ff863f, #0000ff;
+
+.header {
+	@include mixin.page-edge(variable.$navy);
+	&__list {
+		display: flex;
+		justify-content: flex-end;
+		list-style: none;
+
+		@each $colorNames in $classNames {
+			$index_key: index($classNames, $colorNames);
+
+			&__#{$colorNames} {
+				background-color: nth($buttonColor, $index_key);
+				border: 10px solid #fff;
+				height: 40px;
+				width: 40px;
+				margin: 20px #{if($colorNames == 'blue', 20px, 0)} 0 0;
+			}
+		}
+	}
+}
+
+.contents {
+	display: flex;
+}
+
+.sidebar {
+	@include mixin.center(150px, variable.$green);
+}
+
+.main {
+	@include mixin.center(250px, variable.$red);
+
+	&__list {
+		list-style: none;
+		margin: 40px 0 0 0;
+
+		@each $colorNames in $classNames {
+			$index_key: index($classNames, $colorNames);
+
+			&__#{$colorNames} {
+				background-color: nth($buttonColor, $index_key);
+				border: 5px solid #fff;
+				height: 40px;
+				width: 140px;
+				margin: 0 0 10px 0;
+			}
+		}
+	}
+}
+
+.footer {
+	@include mixin.page-edge(variable.$brown);
+}
